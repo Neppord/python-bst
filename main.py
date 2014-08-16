@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-from node import Node
-from tree import Tree
+from bst import Node, Tree
 
 """
 Python Binary Search Tree Data Structure
@@ -12,9 +11,9 @@ Python Binary Search Tree Data Structure
         * find_min
         * find_max
         * find_smaller
-        * pre-order traverse
-        * in-order traverse
-        * post-order traverse
+        * pre-order traversal
+        * in-order traversal
+        * post-order traversal
 
         Author: Per Magnusson, killingfloor00@gmail.com
         GitHub: https://github.com/permag/python-bst
@@ -51,6 +50,7 @@ def main():
     """
 
     # Traverse tree
+    print 'Pre-order traversal'
     for v in tree.preorder_traverse(tree.get_root()):
         print v
 
