@@ -26,6 +26,8 @@ def main():
     Example usage
 
     """
+
+    # Insert nodes in tree
     tree = Tree(Node(9))
     tree.insert(Node(6))
     tree.insert(Node(22))
@@ -52,18 +54,25 @@ def main():
     for v in tree.preorder_traverse(tree.get_root()):
         print v
 
-    # Output
+    # Find smallest
     print 'Smallest:'
     print tree.find_min(tree.get_root()).val
+    
+    # Find biggest
     print 'Biggest:'
     print tree.find_max(tree.get_root()).val
+    
+    # Find all smaller than 7
     smaller_than = 7
     print 'Smaller than {0}:'.format(smaller_than)
-    tree.find_smaller(smaller_than, tree.get_root())
+    for v in tree.find_smaller(smaller_than, tree.get_root()):
+        print v
+
+    # Check if tree contains 4
     print tree.contains(4, tree.get_root())
 
     # tree.delete(18)
-    # tree.preorder_traverse(tree.get_root())
+
 
 if __name__ == '__main__':
     main()

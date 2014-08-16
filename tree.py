@@ -1,6 +1,6 @@
 
 class Tree:
-    
+
     def __init__(self, root):
         self.root = root
 
@@ -72,13 +72,16 @@ class Tree:
 
     def find_smaller(self, x, node):
         if not node:
-            return False
+            pass
 
         elif node.val >= x:
-            self.find_smaller(x, node.left_child)
-
+            for v in self.find_smaller(x, node.left_child):
+                yield v
+                
         elif node.val < x:
-            print node.val
-            self.find_smaller(x, node.left_child)
-            self.find_smaller(x, node.right_child)
+            yield node.val
+            for v in self.find_smaller(x, node.left_child):
+                yield v
+            for v in self.find_smaller(x, node.right_child):
+                yield v
 
