@@ -1,5 +1,6 @@
 
 class Tree:
+    
     def __init__(self, root):
         self.root = root
 
@@ -19,23 +20,29 @@ class Tree:
 
     def preorder_traverse(self, node):
         if node:
-            print node.val  # preorder
-            self.preorder_traverse(node.left_child)
-            self.preorder_traverse(node.right_child)
+            yield node.val  # preorder
+            for v in self.preorder_traverse(node.left_child):
+                yield v
+            for v in self.preorder_traverse(node.right_child):
+                yield v
 
 
     def inorder_traverse(self, node):
         if node:
-            self.inorder_traverse(node.left_child)
-            print node.val  # inorder
-            self.inorder_traverse(node.right_child)
+            for v in self.inorder_traverse(node.left_child):
+                yield v
+            yield node.val  # inorder
+            for v in self.inorder_traverse(node.right_child):
+                yield v
 
 
     def postorder_traverse(self, node):
         if node:
-            self.postorder_traverse(node.left_child)
-            self.postorder_traverse(node.right_child)
-            print node.val  # postorder
+            for v in self.postorder_traverse(node.left_child):
+                yield v
+            for v in self.postorder_traverse(node.right_child):
+                yield v
+            yield node.val  # postorder
 
 
     def contains(self, x, node):

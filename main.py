@@ -49,7 +49,8 @@ def main():
     """
 
     # Traverse tree
-    tree.preorder_traverse(tree.get_root())
+    for v in tree.preorder_traverse(tree.get_root()):
+        print v
 
     # Output
     print 'Smallest:'

@@ -1,5 +1,6 @@
 
 class Node:
+
     def __init__(self, val):
         self.parent = None
         self.left_child = None
@@ -21,6 +22,7 @@ class Node:
                 node.parent = root
             else:
                 self.insert(node, root.left_child)
+
         else:
             # insert right child
             if not root.right_child:
