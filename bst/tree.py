@@ -16,7 +16,7 @@ class Tree:
 
     def delete(self, x):
         node = self.find_node(x, self.root)
-        if type(node) is not bool:
+        if node != False:
             return self.root.delete(node)
         return False
 
