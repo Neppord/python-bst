@@ -15,8 +15,10 @@ class Tree:
 
 
     def delete(self, x):
-        node = self.contains(x, self.root)
-        self.root.delete(node)
+        node = self.find_node(x, self.root)
+        if type(node) is not bool:
+            return self.root.delete(node)
+        return False
 
 
     def preorder_traverse(self, node):
@@ -55,6 +57,17 @@ class Tree:
             return self.contains(x, node.left_child)
         else:
             return self.contains(x, node.right_child)
+
+
+    def find_node(self, x, node):
+        if not node:
+            return False
+        elif x == node.val:
+            return node
+        elif x < node.val:
+            return self.find_node(x, node.left_child)
+        else:
+            return self.find_node(x, node.right_child)
 
 
     def find_min(self, node):

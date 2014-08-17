@@ -8,6 +8,7 @@ Python Binary Search Tree Data Structure
         * insert
         * delete
         * contains
+        * find_node
         * find_min
         * find_max
         * find_smaller
@@ -71,7 +72,7 @@ def main():
     # Check if tree contains 4
     print tree.contains(4, tree.root)
 
-    # tree.delete(18)
+    print tree.delete(18)
 
 
 if __name__ == '__main__':

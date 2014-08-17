@@ -68,7 +68,11 @@ class Node:
             if node.parent.left_child is node:
                 node.parent.left_child = None
                 del node
+                return True
             elif node.parent.right_child is node:
                 node.parent.right_child = None
                 del node
+                return True
+        else:
+            return False
 
