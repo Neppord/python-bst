@@ -12,9 +12,11 @@ class Node:
     def left_child(self):
         return self._left_child
 
+
     @left_child.setter
     def left_child(self, value):
         self._left_child = value
+
 
     @property
     def right_child(self):
@@ -35,7 +37,6 @@ class Node:
     def val(self, value):
         self._val = value
     
-
 
     def insert(self, node, root):
         if not root:
