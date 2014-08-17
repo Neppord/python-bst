@@ -51,25 +51,25 @@ def main():
 
     # Traverse tree
     print 'Pre-order traversal'
-    for v in tree.preorder_traverse(tree.get_root()):
+    for v in tree.preorder_traverse(tree.root):
         print v
 
     # Find smallest
     print 'Smallest:'
-    print tree.find_min(tree.get_root()).val
+    print tree.find_min(tree.root).val
     
     # Find biggest
     print 'Biggest:'
-    print tree.find_max(tree.get_root()).val
+    print tree.find_max(tree.root).val
     
     # Find all smaller than 7
     smaller_than = 7
     print 'Smaller than {0}:'.format(smaller_than)
-    for v in tree.find_smaller(smaller_than, tree.get_root()):
+    for v in tree.find_smaller(smaller_than, tree.root):
         print v
 
     # Check if tree contains 4
-    print tree.contains(4, tree.get_root())
+    print tree.contains(4, tree.root)
 
     # tree.delete(18)
 

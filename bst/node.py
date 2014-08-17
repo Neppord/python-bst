@@ -3,9 +3,38 @@ class Node:
 
     def __init__(self, val):
         self.parent = None
-        self.left_child = None
-        self.right_child = None
-        self.val = val
+        self._left_child = None
+        self._right_child = None
+        self._val = val
+
+
+    @property
+    def left_child(self):
+        return self._left_child
+
+    @left_child.setter
+    def left_child(self, value):
+        self._left_child = value
+
+    @property
+    def right_child(self):
+        return self._right_child
+
+
+    @right_child.setter
+    def right_child(self, value):
+        self._right_child = value
+
+
+    @property
+    def val(self):
+        return self._val
+
+
+    @val.setter
+    def val(self, value):
+        self._val = value
+    
 
 
     def insert(self, node, root):

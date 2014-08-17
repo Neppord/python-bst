@@ -2,11 +2,12 @@
 class Tree:
 
     def __init__(self, root):
-        self.root = root
+        self._root = root
 
 
-    def get_root(self):
-        return self.root
+    @property
+    def root(self):
+        return self._root
 
 
     def insert(self, node):
