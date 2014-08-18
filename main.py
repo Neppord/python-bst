@@ -87,7 +87,5 @@ def main():
     print('Node 18 deleted == {0}'.format(tree.delete(18)))
 
 
-
 if __name__ == '__main__':
     main()
-

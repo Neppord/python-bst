@@ -29,9 +29,14 @@ class TreeTestCase(unittest2.TestCase):
 
 
     def test_delete(self):
+        self.tree.insert(Node(13))
+        self.tree.insert(Node(7))
+        self.assertTrue(self.tree.delete(13))  # leaf
+        self.assertTrue(self.tree.delete(7))
+        self.assertFalse(self.tree.delete(13))
+        self.tree.insert(Node(13))
         self.tree.insert(Node(12))
-        self.assertTrue(self.tree.delete(12))  # leaf
-        self.assertFalse(self.tree.delete(12))
+        self.assertFalse(self.tree.delete(13))
 
 
     def test_find_smaller(self):
