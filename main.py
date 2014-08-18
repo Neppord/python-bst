@@ -81,7 +81,7 @@ def main():
 
     # Delete leaf node 18
     delete = 18
-    print('\nNode {0}  was deleted == {1}'.format(delete, tree.delete(delete)))
+    print('\nNode {0} was deleted == {1}'.format(delete, tree.delete(delete)))
 
 
 if __name__ == '__main__':
