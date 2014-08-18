@@ -1,5 +1,4 @@
-from bst.node import Node
-from bst.tree import Tree
+from bst import Node, Tree
 import unittest2
 
 class TreeTestCase(unittest2.TestCase):
