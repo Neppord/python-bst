@@ -48,43 +48,38 @@ def main():
     """
 
     # Traverse tree
-    print('Pre-order traversal:')
-    for v in tree.preorder_traverse():
-        print(v.val)
+    print('Pre-order traversal:'),
+    print(', '.join(str(node.val) for node in  tree.preorder_traverse()))
 
-    print('In-order traversal:')
-    for v in tree.inorder_traverse():
-        print(v.val)
+    print('\nIn-order traversal:'),
+    print(', '.join(str(node.val) for node in tree.inorder_traverse()))
 
-    print('Post-order traversal:')
-    for v in tree.postorder_traverse():
-        print(v.val)
+    print('\nPost-order traversal:'),
+    print(', '.join(str(node.val) for node in tree.postorder_traverse()))
 
     # Find smallest
-    print('Smallest:')
+    print('\nSmallest:'),
     print(tree.find_min().val)
     
     # Find biggest
-    print('Biggest:')
+    print('\nBiggest:'),
     print(tree.find_max().val)
     
     # Find all smaller than 7
     smaller_than = 7
-    print('Smaller than {0}:'.format(smaller_than))
-    for v in tree.find_smaller(smaller_than):
-        print(v.val)
+    print('\nSmaller than {0}:'.format(smaller_than)),
+    print(', '.join(str(node.val) for node in tree.find_smaller(smaller_than)))
 
     # Find all bigger than 5
     bigger_than = 5
-    print('Bigger than {0}'.format(bigger_than))
-    for v in tree.find_bigger(bigger_than):
-        print(v.val)
+    print('\nBigger than {0}:'.format(bigger_than)),
+    print(', '.join(str(node.val) for node in tree.find_bigger(bigger_than)))
 
     # Check if tree contains 4
-    print('Node 4 exists in tree == {0}'.format(tree.contains(4)))
+    print('\nNode 4 exists in tree == {0}'.format(tree.contains(4)))
 
     # Delete leaf node 18
-    print('Node 18 deleted == {0}'.format(tree.delete(18)))
+    print('\nNode 18  was deleted == {0}'.format(tree.delete(18)))
 
 
 if __name__ == '__main__':

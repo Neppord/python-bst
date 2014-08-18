@@ -2,11 +2,16 @@
 class Node:
 
     def __init__(self, val):
-        self.parent = None
+        self._parent = None
         self._left_child = None
         self._right_child = None
         self._val = val
 
+
+    @property
+    def parent(self):
+        return self._parent
+    
 
     @property
     def left_child(self):
