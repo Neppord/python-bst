@@ -6,6 +6,6 @@ setup(name='bst',
       description='Python BST.',
       author='Per Magnusson',
       author_email='perm00@me.com',
-      url='http://www.scriptogr.am/permag/python-bst',
+      url='https://github.com/permag/python-bst',
       packages=['bst'],
 )
