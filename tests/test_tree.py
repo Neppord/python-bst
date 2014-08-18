@@ -43,14 +43,14 @@ class TreeTestCase(unittest2.TestCase):
         self.tree.insert(Node(2))
         self.tree.insert(Node(6))
         self.tree.insert(Node(15))
-        self.assertEqual(list(self.tree.find_smaller(9)), [4, 2, 6])
+        self.assertEqual([node.val for node in self.tree.find_smaller(9)], [4, 2, 6])
 
 
     def test_find_bigger(self):
         self.tree.insert(Node(22))
         self.tree.insert(Node(18))
         self.tree.insert(Node(25))
-        self.assertEqual(list(self.tree.find_bigger(9)), [22, 25, 18])
+        self.assertEqual([node.val for node in self.tree.find_bigger(9)], [22, 25, 18])
 
 
     def test_find_min(self):

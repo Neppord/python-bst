@@ -115,7 +115,7 @@ class Tree:
                     yield v
                     
             elif node.val < x:
-                yield node.val
+                yield node
                 for v in find(x, node.left_child):
                     yield v
                 for v in find(x, node.right_child):
@@ -134,7 +134,7 @@ class Tree:
                     yield v
 
             elif node.val > x:
-                yield node.val
+                yield node
                 for v in find(x, node.right_child):
                     yield v
                 for v in find(x, node.left_child):

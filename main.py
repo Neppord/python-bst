@@ -72,13 +72,13 @@ def main():
     smaller_than = 7
     print('Smaller than {0}:'.format(smaller_than))
     for v in tree.find_smaller(smaller_than):
-        print(v)
+        print(v.val)
 
     # Find all bigger than 5
     bigger_than = 5
     print('Bigger than {0}'.format(bigger_than))
     for v in tree.find_bigger(bigger_than):
-        print(v)
+        print(v.val)
 
     # Check if tree contains 4
     print('Node 4 exists in tree == {0}'.format(tree.contains(4)))
