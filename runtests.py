@@ -10,7 +10,7 @@ def main():
     # Run tests
     tests = defaultTestLoader.discover('tests')
     suit = TestSuite(tests)
-    result = TextTestRunner(verbosity=2, failfast=False).run(suit)
+    TextTestRunner(verbosity=2, failfast=False).run(suit)
 
 
 if __name__ == '__main__':
