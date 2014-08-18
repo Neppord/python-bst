@@ -99,3 +99,19 @@ class Tree:
             for v in self.find_smaller(x, node.right_child):
                 yield v
 
+    
+    def find_bigger(self, x, node):
+        if not node:
+            pass
+
+        elif node.val <= x:
+            for v in self.find_bigger(x, node.right_child):
+                yield v
+
+        elif node.val > x:
+            yield node.val
+            for v in self.find_bigger(x, node.right_child):
+                yield v
+            for v in self.find_bigger(x, node.left_child):
+                yield v
+

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from bst import Node, Tree
 
 """
@@ -12,6 +11,7 @@ Python Binary Search Tree Data Structure
         * find_min
         * find_max
         * find_smaller
+        * find_bigger
         * pre-order traversal
         * in-order traversal
         * post-order traversal
@@ -22,13 +22,10 @@ Python Binary Search Tree Data Structure
 """
 
 def main():
-    """
-    Example usage
-
-    """
+    """ Example usage """
 
     # Insert nodes in tree
-    tree = Tree(Node(9))
+    tree = Tree(Node(9))  # root node
     tree.insert(Node(6))
     tree.insert(Node(22))
     tree.insert(Node(1))
@@ -51,28 +48,44 @@ def main():
     """
 
     # Traverse tree
-    print 'Pre-order traversal'
+    print('Pre-order traversal:')
     for v in tree.preorder_traverse(tree.root):
-        print v
+        print(v)
+
+    print('In-order traversal:')
+    for v in tree.inorder_traverse(tree.root):
+        print(v)
+
+    print('Post-order traversal:')
+    for v in tree.postorder_traverse(tree.root):
+        print(v)
 
     # Find smallest
-    print 'Smallest:'
-    print tree.find_min(tree.root).val
+    print('Smallest:')
+    print(tree.find_min(tree.root).val)
     
     # Find biggest
-    print 'Biggest:'
-    print tree.find_max(tree.root).val
+    print('Biggest:')
+    print(tree.find_max(tree.root).val)
     
     # Find all smaller than 7
     smaller_than = 7
-    print 'Smaller than {0}:'.format(smaller_than)
+    print('Smaller than {0}:'.format(smaller_than))
     for v in tree.find_smaller(smaller_than, tree.root):
-        print v
+        print(v)
+
+    # Find all bigger than 5
+    bigger_than = 5
+    print('Bigger than {0}'.format(bigger_than))
+    for v in tree.find_bigger(bigger_than, tree.root):
+        print(v)
 
     # Check if tree contains 4
-    print tree.contains(4, tree.root)
+    print('Node 4 exists in tree == {0}'.format(tree.contains(4, tree.root)))
 
-    print tree.delete(18)
+    # Delete leaf node 18
+    print('Node 18 deleted == {0}'.format(tree.delete(18)))
+
 
 
 if __name__ == '__main__':
