@@ -16,7 +16,7 @@ Python Binary Search Tree Data Structure
         * in-order traversal
         * post-order traversal
 
-        Author: Per Magnusson, killingfloor00@gmail.com
+        Author: Per Magnusson, perm00@me.com
         GitHub: https://github.com/permag/python-bst
 
 """
