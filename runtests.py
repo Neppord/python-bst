@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys, os
-from unittest2 import defaultTestLoader as TestLoader, TestSuite, TextTestRunner as TestRunner
+from unittest2 import defaultTestLoader, TestSuite, TextTestRunner
 
 def main():
     parent = os.path.dirname(os.path.abspath(__file__))
@@ -8,12 +8,9 @@ def main():
         sys.path.insert(0, parent)
 
     # Run tests
-    tests = TestLoader.discover('tests')
+    tests = defaultTestLoader.discover('tests')
     suit = TestSuite(tests)
-    result = TestRunner(verbosity=1, failfast=False).run(suit)
-    exit_code = len(result.failures) + len(result.errors)
-
-    sys.exit(exit_code)
+    result = TextTestRunner(verbosity=2, failfast=False).run(suit)
 
 
 if __name__ == '__main__':
