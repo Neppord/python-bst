@@ -76,10 +76,12 @@ def main():
     print(', '.join(str(node.val) for node in tree.find_bigger(bigger_than)))
 
     # Check if tree contains 4
-    print('\nNode 4 exists in tree == {0}'.format(tree.contains(4)))
+    contains = 4
+    print('\nNode {0} exists in tree == {1}'.format(contains, tree.contains(contains)))
 
     # Delete leaf node 18
-    print('\nNode 18  was deleted == {0}'.format(tree.delete(18)))
+    delete = 18
+    print('\nNode {0}  was deleted == {1}'.format(delete, tree.delete(delete)))
 
 
 if __name__ == '__main__':
