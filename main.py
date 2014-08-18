@@ -49,39 +49,39 @@ def main():
 
     # Traverse tree
     print('Pre-order traversal:')
-    for v in tree.preorder_traverse(tree.root):
-        print(v)
+    for v in tree.preorder_traverse():
+        print(v.val)
 
     print('In-order traversal:')
-    for v in tree.inorder_traverse(tree.root):
-        print(v)
+    for v in tree.inorder_traverse():
+        print(v.val)
 
     print('Post-order traversal:')
-    for v in tree.postorder_traverse(tree.root):
-        print(v)
+    for v in tree.postorder_traverse():
+        print(v.val)
 
     # Find smallest
     print('Smallest:')
-    print(tree.find_min(tree.root).val)
+    print(tree.find_min().val)
     
     # Find biggest
     print('Biggest:')
-    print(tree.find_max(tree.root).val)
+    print(tree.find_max().val)
     
     # Find all smaller than 7
     smaller_than = 7
     print('Smaller than {0}:'.format(smaller_than))
-    for v in tree.find_smaller(smaller_than, tree.root):
+    for v in tree.find_smaller(smaller_than):
         print(v)
 
     # Find all bigger than 5
     bigger_than = 5
     print('Bigger than {0}'.format(bigger_than))
-    for v in tree.find_bigger(bigger_than, tree.root):
+    for v in tree.find_bigger(bigger_than):
         print(v)
 
     # Check if tree contains 4
-    print('Node 4 exists in tree == {0}'.format(tree.contains(4, tree.root)))
+    print('Node 4 exists in tree == {0}'.format(tree.contains(4)))
 
     # Delete leaf node 18
     print('Node 18 deleted == {0}'.format(tree.delete(18)))

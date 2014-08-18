@@ -15,103 +15,130 @@ class Tree:
 
 
     def delete(self, x):
-        node = self.find_node(x, self.root)
+        node = self.find_node(x)
         if node != False:
             return self.root.delete(node)
         return False
 
 
-    def preorder_traverse(self, node):
-        if node:
-            yield node.val  # preorder
-            for v in self.preorder_traverse(node.left_child):
-                yield v
-            for v in self.preorder_traverse(node.right_child):
-                yield v
+    def preorder_traverse(self):
+        def traverse(node):
+            if node:
+                yield node  # preorder
+                for v in traverse(node.left_child):
+                    yield v
+                for v in traverse(node.right_child):
+                    yield v
+
+        return traverse(self.root)
 
 
-    def inorder_traverse(self, node):
-        if node:
-            for v in self.inorder_traverse(node.left_child):
-                yield v
-            yield node.val  # inorder
-            for v in self.inorder_traverse(node.right_child):
-                yield v
+    def inorder_traverse(self):
+        def traverse(node):
+            if node:
+                for v in traverse(node.left_child):
+                    yield v
+                yield node  # inorder
+                for v in traverse(node.right_child):
+                    yield v
+
+        return traverse(self.root)
 
 
-    def postorder_traverse(self, node):
-        if node:
-            for v in self.postorder_traverse(node.left_child):
-                yield v
-            for v in self.postorder_traverse(node.right_child):
-                yield v
-            yield node.val  # postorder
+    def postorder_traverse(self):
+        def traverse(node):
+            if node:
+                for v in traverse(node.left_child):
+                    yield v
+                for v in traverse(node.right_child):
+                    yield v
+                yield node  # postorder
+
+        return traverse(self.root)
 
 
-    def contains(self, x, node):
-        if not node:
-            return False
-        elif x == node.val:
-            return True
-        elif x < node.val:
-            return self.contains(x, node.left_child)
-        else:
-            return self.contains(x, node.right_child)
+    def contains(self, x):
+        def cont(x, node):
+            if not node:
+                return False
+            elif x == node.val:
+                return True
+            elif x < node.val:
+                return cont(x, node.left_child)
+            else:
+                return cont(x, node.right_child)
+
+        return cont(x, self.root)
 
 
-    def find_node(self, x, node):
-        if not node:
-            return False
-        elif x == node.val:
-            return node
-        elif x < node.val:
-            return self.find_node(x, node.left_child)
-        else:
-            return self.find_node(x, node.right_child)
+    def find_node(self, x):
+        def find(x, node):
+            if not node:
+                return False
+            elif x == node.val:
+                return node
+            elif x < node.val:
+                return find(x, node.left_child)
+            else:
+                return find(x, node.right_child)
+
+        return find(x, self.root)
 
 
-    def find_min(self, node):
-        if not node.left_child:
-            return node
-        else:
-            return self.find_min(node.left_child)
+    def find_min(self):
+        def find(node):
+            if not node.left_child:
+                return node
+            else:
+                return find(node.left_child)
+
+        return find(self.root)
 
 
-    def find_max(self, node):
-        if not node.right_child:
-            return node
-        else:
-            return self.find_max(node.right_child)
+    def find_max(self):
+        def find(node):
+            if not node.right_child:
+                return node
+            else:
+                return find(node.right_child)
+
+        return find(self.root)
 
 
-    def find_smaller(self, x, node):
-        if not node:
-            pass
+    def find_smaller(self, x):
+        def find(x, node):
+            if not node:
+                pass
 
-        elif node.val >= x:
-            for v in self.find_smaller(x, node.left_child):
-                yield v
-                
-        elif node.val < x:
-            yield node.val
-            for v in self.find_smaller(x, node.left_child):
-                yield v
-            for v in self.find_smaller(x, node.right_child):
-                yield v
+            elif node.val >= x:
+                for v in find(x, node.left_child):
+                    yield v
+                    
+            elif node.val < x:
+                yield node.val
+                for v in find(x, node.left_child):
+                    yield v
+                for v in find(x, node.right_child):
+                    yield v
 
-    
-    def find_bigger(self, x, node):
-        if not node:
-            pass
+        return find(x, self.root)
 
-        elif node.val <= x:
-            for v in self.find_bigger(x, node.right_child):
-                yield v
 
-        elif node.val > x:
-            yield node.val
-            for v in self.find_bigger(x, node.right_child):
-                yield v
-            for v in self.find_bigger(x, node.left_child):
-                yield v
+    def find_bigger(self, x):
+        def find(x, node):
+            if not node:
+                pass
+
+            elif node.val <= x:
+                for v in find(x, node.right_child):
+                    yield v
+
+            elif node.val > x:
+                yield node.val
+                for v in find(x, node.right_child):
+                    yield v
+                for v in find(x, node.left_child):
+                    yield v
+
+        return find(x, self.root)
 
