@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-from bst import Node, Tree
-
 """
 Python Binary Search Tree Data Structure
     Features:
@@ -20,6 +18,9 @@ Python Binary Search Tree Data Structure
         GitHub: https://github.com/permag/python-bst
 
 """
+
+from bst import Node, Tree
+
 
 def main():
     """ Example usage """
