@@ -1,3 +1,4 @@
+from itertools import chain
 
 class Node:
 
@@ -28,13 +29,21 @@ class Node:
         return self._val
     
     def preorder_traverse(self):
-        yield self
+        left = self._preorder_traverse_left()
+        right = self._preorder_traverse_right()
+        return chain((self,), left, right)
+
+    def _preorder_traverse_left(self):
         if self.left_child:
-            for v in self.left_child.preorder_traverse():
-                yield v
+            return self.left_child.preorder_traverse()
+        else:
+            return ()
+
+    def _preorder_traverse_right(self):
         if self.right_child:
-            for v in self.right_child.preorder_traverse():
-                yield v
+            return self.right_child.preorder_traverse()
+        else:
+            return ()
         
 
     
