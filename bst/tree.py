@@ -22,15 +22,7 @@ class Tree:
 
 
     def preorder_traverse(self):
-        def traverse(node):
-            if node:
-                yield node  # preorder
-                for v in traverse(node.left_child):
-                    yield v
-                for v in traverse(node.right_child):
-                    yield v
-
-        return traverse(self.root)
+        return self.root.preorder_traverse()
 
 
     def inorder_traverse(self):

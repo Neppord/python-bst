@@ -27,6 +27,17 @@ class Node:
     def val(self):
         return self._val
     
+    def preorder_traverse(self):
+        yield self
+        if self.left_child:
+            for v in self.left_child.preorder_traverse():
+                yield v
+        if self.right_child:
+            for v in self.right_child.preorder_traverse():
+                yield v
+        
+
+    
 
     def insert(self, node, root):
         if not root:
